@@ -57,6 +57,21 @@ public class SearchCityTest {
         Assert.assertTrue(result.containsAll(expectedResult));
     }
 
+    // 4. La fonctionnalité de recherche devrait également fonctionner lorsque le texte de recherche n'est qu'une partie d'un nom de ville
+    //   Par exemple "ape" devrait renvoyer la ville "Budapest"
+
+    @Test
+    public void WhenSearchWordIsNotComplete() throws NotFoundException {
+        // Arrange
+        searchCity = new SearchCity(cities);
+        List<String> expectedResult = List.of("Budapest");
+
+        // Act
+        List<String> result = searchCity.search("ape");
+
+        // Assert
+        Assert.assertTrue(result.containsAll(expectedResult));
+    }
 
 
 
