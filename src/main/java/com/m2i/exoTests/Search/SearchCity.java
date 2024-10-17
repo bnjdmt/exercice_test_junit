@@ -14,7 +14,7 @@ public class SearchCity {
 
         if (2 <= word.length()) {
             return cities.stream()
-                    .filter(s -> s.contains(word))
+                    .filter(cities -> cities.toLowerCase().contains(word.toLowerCase()))
                     .toList();
         } else {
             throw new NotFoundException("ça va péter");

@@ -28,7 +28,8 @@ public class SearchCityTest {
     //   Par exemple, pour le texte de recherche "Va", la fonction doit renvoyer Valence et Vancouver
 
     @Test
-    public void WhenSearchHasMore2Caracters() throws NotFoundException {
+    public void WhenSearchHasMore2Caracters() throws NotFoundException
+    {
         // Arrange
         searchCity = new SearchCity(cities);
         List<String> expectedResult = List.of("Valence", "Vancouver");
@@ -36,10 +37,27 @@ public class SearchCityTest {
         // Act
         List<String> result = searchCity.search("Va");
 
-        System.out.println(result);
         // Assert
         Assert.assertTrue(result.containsAll(expectedResult));
     }
+
+    // 3. La fonctionnalité de recherche doit être insensible à la casse
+
+    @Test
+    public void searchIsNotSensitive() throws NotFoundException
+    {
+        // Arrange
+        searchCity = new SearchCity(cities);
+        List<String> expectedResult = List.of("Valence", "Vancouver");
+
+        // Act
+        List<String> result = searchCity.search("Va");
+
+        // Assert
+        Assert.assertTrue(result.containsAll(expectedResult));
+    }
+
+
 
 
 }
