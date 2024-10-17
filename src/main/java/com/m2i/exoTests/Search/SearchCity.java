@@ -1,0 +1,24 @@
+package com.m2i.exoTests.Search;
+
+import java.util.List;
+
+public class SearchCity {
+
+    private List<String> cities;
+
+    public SearchCity(List<String> cities) {
+        this.cities = cities;
+    }
+
+    public List<String> search(String word) throws ClassNotFoundException {
+
+        if (2 < word.length()) {
+            return cities.stream()
+                    .filter(s -> s.contains(word))
+                    .toList();
+        } else {
+            throw new ClassNotFoundException("ça va péter");
+        }
+
+    }
+}
