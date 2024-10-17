@@ -12,7 +12,7 @@ public class SearchCity {
 
     public List<String> search(String word) throws NotFoundException {
 
-        if (2 < word.length()) {
+        if (2 <= word.length()) {
             return cities.stream()
                     .filter(s -> s.contains(word))
                     .toList();
