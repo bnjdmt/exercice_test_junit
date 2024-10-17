@@ -16,6 +16,8 @@ public class SearchCity {
             return cities.stream()
                     .filter(cities -> cities.toLowerCase().contains(word.toLowerCase()))
                     .toList();
+        } if ("*".equals(word)) {
+            return cities;
         } else {
             throw new NotFoundException("ça va péter");
         }

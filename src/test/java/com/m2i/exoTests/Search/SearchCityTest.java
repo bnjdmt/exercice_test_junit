@@ -73,6 +73,20 @@ public class SearchCityTest {
         Assert.assertTrue(result.containsAll(expectedResult));
     }
 
+    // 5. Si le texte de recherche est un « * » (astérisque), il doit renvoyer tous les noms de ville.
 
+    @Test
+    public void WhenSearchWordContainAsterisk() throws NotFoundException
+    {
+        // Arrange
+        searchCity = new SearchCity(cities);
+        List<String> expectedResult = cities;
+
+        // Act
+        List<String> result = searchCity.search("*");
+
+        // Assert
+        Assert.assertTrue(result.containsAll(expectedResult));
+    }
 
 }
