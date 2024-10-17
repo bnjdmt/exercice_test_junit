@@ -1,7 +1,7 @@
 package com.m2i.exoTests.Search;
 
-import com.m2i.exoTests.Fib.Fib;
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -13,15 +13,15 @@ public class SearchCityTest {
 
 //1. Si le texte de la recherche contient moins de 2 caractères, ***Une exception est levée de type NotFoundException***.
 
-    public void WhenSearchHasLess2Caracters() throws ClassNotFoundException {
+    @Test
+    public void WhenSearchHasLess2Caracters() {
         // Arrange
         searchCity = new SearchCity(cities);
 
-        // Act
-        List<String> result = searchCity.search("t");
-
         // Assert
-        Assert.assertThrows(result.isEmpty());
+        Assert.assertThrows(NotFoundException.class, () -> {
+            searchCity.search("t");
+        });
     }
 
 

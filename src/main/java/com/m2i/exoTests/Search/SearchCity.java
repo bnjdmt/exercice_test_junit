@@ -10,14 +10,14 @@ public class SearchCity {
         this.cities = cities;
     }
 
-    public List<String> search(String word) throws ClassNotFoundException {
+    public List<String> search(String word) throws NotFoundException {
 
         if (2 < word.length()) {
             return cities.stream()
                     .filter(s -> s.contains(word))
                     .toList();
         } else {
-            throw new ClassNotFoundException("ça va péter");
+            throw new NotFoundException("ça va péter");
         }
 
     }
